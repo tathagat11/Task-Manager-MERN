@@ -1,6 +1,38 @@
 .header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: red;
+    background-color: white;
     align-items: center;
+    position: absolute;
+    flex-direction: row;
+    top: 0;
+    &__logo {
+        h3 {
+            color: #272727;
+            font-weight: 500;
+            padding: 15px;
+            font-size: 25px
+        };
+        &__taskIcon{
+            height: 25px;
+            color: #272727;
+            padding-left: 0px;
+            padding-top: 21px;
+        }
+        display: flex;
+        flex-direction: row;
+    }
+    &__buttons {
+        padding-right: 20px;
+        button {
+            padding: 5px 15px;
+            border: none;
+            background-color: transparent;
+            font-family: 'poppins';
+            color: #272727;
+            font-weight: 400;
+            font-size: 17px;
+        }
+    }
 }
