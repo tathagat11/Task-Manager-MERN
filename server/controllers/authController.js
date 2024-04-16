@@ -17,7 +17,7 @@ const signin = async(req, res) => {
 
                 },
                 'hdsjkdksjdhkshdksjhdjsdj',
-                {expiresIn:'24h'}
+                {expiresIn:'24h'},
             );
             res.status(200).send({
                 token,
@@ -56,8 +56,13 @@ const register = async(req, res) => {
         });
 
         await user.save()
-        return res.status(200).send('User registration successful');
+        return res.status(200).send(user);
     } catch (error) {
         return res.status(400).send("Unknown error creating user.");
     }
 }
+
+module.exports = {
+    signin,
+    register,
+};
