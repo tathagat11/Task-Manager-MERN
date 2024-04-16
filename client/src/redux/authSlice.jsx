@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from 'axios';
+import history from "../history";
 
 const initialState = {
     isLoading: false,
@@ -32,3 +34,31 @@ export const authSlice = createSlice({
 export const {loginFailure, loginSuccess, registerFailure, registerSuccess, logOutSucces} = authSlice.actions;
 
 export default authSlice.reducer;
+
+export const register = (user) => async(dispatch) => {
+    console.log(user)
+    try {
+
+        const config = {
+            headers:{
+                'content-type':'application/json',
+            },
+        };
+
+        const response = await axios.post(
+            'http://localhost:4000/auth/register',
+            user,
+            config
+        );
+
+        if(response){
+            dispatch(registerSuccess(response.data));
+            history.push('/signin');
+            window.location.reload();
+        } else {
+            dispatch(registerFailure());
+        }
+    } catch (error) {
+        dispatch(registerFailure());
+    }
+}
