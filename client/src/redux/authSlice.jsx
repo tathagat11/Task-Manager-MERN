@@ -25,7 +25,7 @@ export const authSlice = createSlice({
         registerFailure: (state, action)=>{
             state.error=action.payload;
         },
-        logOutSucces: (state)=> {
+        logOutSuccess: (state)=> {
             state.currentUser=null;
         }
     }
@@ -60,5 +60,28 @@ export const register = (user) => async(dispatch) => {
         }
     } catch (error) {
         dispatch(registerFailure());
+    }
+};
+
+export const signin = user => async(dispatch) => {
+    try {
+        const userData = {
+			email: user.email,
+			password: user.password,
+		};
+        const response = await axios.post(
+            'http://localhost:4000/auth/signin',
+            userData
+        );
+        if(response){
+            localStorage.setItem('auth', JSON.stringify(response.data));
+            dispatch(loginSuccess(response.data));
+            history.push('/dashboard');
+            window.location.reload();
+        } else {
+            dispatch(loginFailure());
+        }
+    } catch (error) {
+        dispatch(loginFailure());
     }
 }
