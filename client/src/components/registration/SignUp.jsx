@@ -4,6 +4,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useDispatch } from 'react-redux'
 import { register } from "../../redux/authSlice";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -71,6 +72,7 @@ const SignUp = () => {
               <FontAwesomeIcon icon={faArrowRight} className="signUpIcon" />
             </button>
           </div>
+          <Link to={"/signin"}>Already have an account? Log in.</Link>
         </div>
       </div>
     </>
