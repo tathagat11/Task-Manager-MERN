@@ -55,7 +55,7 @@ const SignIn = () => {
               <FontAwesomeIcon icon={faArrowRight} className="signUpIcon" />
             </button>
           </div>
-          <Link to={"/signup"}>Don't have an account? Sign up.</Link>
+          <Link to={"/signup"}>{"Don't have an account? Sign up."}</Link>
         </div>
       </div>
     </>
