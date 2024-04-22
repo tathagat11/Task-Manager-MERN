@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./components/registration/SignUp";
 import Home from "./pages/Home/Home";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import TaskManager from "./pages/TaskManagement/TaskManager";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/taskmanager" element={<TaskManager />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </div>

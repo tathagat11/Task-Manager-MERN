@@ -1,0 +1,44 @@
+.dashboard {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.left {
+    width: 15%;
+}
+
+.right {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+.rightContent {
+    width: 100%;
+    text-align: center;
+}
+.taskCount {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.box {
+    width: 150px;
+    height: 100px;
+    border-radius: 20px;
+    border: 2px solid rgb(162, 162, 162);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    background-color: white;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+
