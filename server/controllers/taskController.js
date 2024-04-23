@@ -18,24 +18,13 @@ const addTask = async (req, res) => {
 
 const getAllTasks = async (req, res) => {
 	const { id } = req.query;
-  
 	try {
-	  let objectId;
-	  try {
-		objectId = new mongoose.Types.ObjectId(id);
-	  } catch (error) {
-		// Handle the case where id is not a valid ObjectId
-		return res.status(400).send('Invalid id parameter');
-	  }
-  
-	  const tasklist = await Task.find({ createdBy: objectId });
-  
-	  console.log(tasklist);
-	  return res.status(200).send(tasklist);
+		let tasklist = await Task.find({ createdBy: id });
+		return res.status(200).send(tasklist);
 	} catch (error) {
-	  return res.status(400).send(error);
+		return res.status(400).send(error);
 	}
-  };
+};
 
 const editTask = async (req, res) => {};
 

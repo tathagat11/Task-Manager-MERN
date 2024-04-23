@@ -10,8 +10,7 @@ const TaskList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllTasks(currentUser.token));
-    console.log((AllTasks));
+    dispatch(getAllTasks(currentUser.token, currentUser.id));
   }, [dispatch, currentUser.token, currentUser.id]);
   return (
     <div>
