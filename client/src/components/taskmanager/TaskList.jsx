@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTasks } from "../../redux/taskSlice";
+import ListCard from "./ListCard";
 
 const TaskList = () => {
   const auth = useSelector((state) => state.auth);
@@ -15,7 +16,7 @@ const TaskList = () => {
   return (
     <div>
       {Object.values(AllTasks).map(item => {
-        return <li key={item._id}>{item.task}</li>
+        return <ListCard key={item._id} item={item}/>
       })}
     </div>
   )
