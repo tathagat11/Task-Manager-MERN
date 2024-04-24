@@ -1,0 +1,21 @@
+.container2 {
+    margin: 5%;
+    padding-top: 30px;
+    background-color: white;
+    height: 50vh;
+    border-radius: 20px;
+    opacity: 0.8;
+}
+.list-header {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 70px;
+    list-style-type: none;
+    li {
+        font-size: 20px;
+        font-weight: 500;
+    }
+  }
+  
