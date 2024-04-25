@@ -20,7 +20,7 @@ const TaskList = () => {
         <li>ID</li>
         <li>Task Name</li>
         <li>Status</li>
-        <li>Action</li>
+        <li>Delete</li>
       </ul>
       {Object.values(AllTasks).map(item => {
         return <ListCard key={item._id} item={item}/>

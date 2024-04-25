@@ -29,14 +29,15 @@
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  margin-top: 50px;
 }
 .box {
-  width: 150px;
-  height: 100px;
+  width: 200px;
+  height: 150px;
   border-radius: 20px;
   border: 2px solid rgb(162, 162, 162);
   display: flex;
-  flex-direction: row;
+  flex-direction:  column;
   align-items: center;
   justify-content: center;
   margin: 20px 0;
@@ -44,25 +45,34 @@
 }
 
 h2 {
+  margin-top: 50px;
   font-weight: 500;
+  font-size: 50px;
 }
-.button {
+.button2 {
     color: white;
-    padding: 10px 15px;
-    margin: 20px;
-    font-size: 17px;
+    padding: 15px 15px;
+    margin: 50px 20px;
+    font-size: 22px;
     font-family: "poppins", sans-serif;
     background-color: #002c57;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     align-items: center;
-    display: flex;
+    display: inline-block;
     flex-direction: row;
     justify-content: space-between;
   display: inline-block;
 }
-.button:hover{
+.button2:hover{
     color: #002c57;
     background-color: white;
     border: 1px solid #002c57;
   }
+.count {
+  font-size:40px;
+}
+
+.title {
+  font-size: 20px;
+}

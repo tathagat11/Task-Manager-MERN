@@ -120,3 +120,13 @@ export const arrowClick = (item, string) => async() => {
     console.log(error);
   }
 };
+
+export const deleteItem = (id) => async(dispatch) => {
+  let response = await axios.delete(`http://localhost:4000/task/${id}`);
+  if(response){
+    dispatch(deleteSuccess());
+    window.location.reload();
+  } else {
+    dispatch(deleteFailure());
+  }
+}
