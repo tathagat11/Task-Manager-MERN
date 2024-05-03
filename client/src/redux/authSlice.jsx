@@ -89,10 +89,8 @@ export const signin = (user) => async (dispatch) => {
 		if (response) {
 			localStorage.setItem('auth', JSON.stringify(response.data));
 			dispatch(loginSuccess(response.data));
-
+			console.log(response.data);
 			history.push('/dashboard');
-			// toast.success('login successfull');
-
 			window.location.reload();
 		} else {
 			dispatch(loginFailure());
