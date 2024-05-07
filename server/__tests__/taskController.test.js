@@ -1,9 +1,9 @@
 const request = require('supertest');
 const app = require('../server.js');
-const User = require('../../database/model/user.model');
-const Task = require('../../database/model/task.model');
-jest.mock("../../database/model/user.model");
-jest.mock("../../database/model/task.model");
+const User = require('../database/model/user.model.js');
+const Task = require('../database/model/task.model.js');
+jest.mock("../database/model/user.model");
+jest.mock("../database/model/task.model");
 
 beforeAll(async () => {
   await Task.deleteMany({});

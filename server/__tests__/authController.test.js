@@ -1,6 +1,6 @@
 const request = require("supertest");
 const app = require("../server.js");
-const User = require("../../database/model/user.model.js");
+const User = require("../database/model/user.model.js");
 // jest.mock("../../database/model/user.model");
 // beforeAll(async () => {
 //   await User.deleteMany({});

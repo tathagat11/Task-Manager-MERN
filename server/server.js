@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express();
-require('../database/db')
+require('./database/db')
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes')
 const taskRoutes = require('./routes/taskRoutes')
