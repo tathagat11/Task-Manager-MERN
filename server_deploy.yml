@@ -1,0 +1,45 @@
+- name: Kubernetes
+  hosts: localhost
+  
+  tasks:
+    
+      - name: Login in docker hub with user
+        community.general.docker_login:
+            username: "tathagat10"
+            password: "lmandnjr10"
+      - name: Delete pods if running2
+        ansible.builtin.shell: kubectl delete -f /home/tathagat/task_manager/server/kubernetes.yml
+        ignore_errors: true
+      - name: Sleep
+        ansible.builtin.shell: sleep 30
+      - name: Delete Docker image
+        community.general.docker_image:
+            name: tathagat10/server
+            tag: latest
+            state: absent
+        ignore_errors: true
+      - name: Build Docker image
+        community.general.docker_image:
+            name: tathagat10/server
+            tag: latest
+            source: build
+            build:
+                path: /home/tathagat/task_manager/server/
+                dockerfile: Dockerfile
+      - name: Push Docker image to Docker Hub
+        community.general.docker_image:
+            name: tathagat10/server
+            tag: latest
+            push: yes
+            source: local
+      # - name: Install Helm (using curl)
+      #   become: yes
+      #   shell: |
+      #     curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+      #     chmod 700 get_helm.sh
+      #     ./get_helm.sh
+      - name: Install ngrok Ingress Controller & Creating namespace
+        ansible.builtin.shell: helm install ngrok-ingress-controller ngrok/kubernetes-ingress-controller --namespace ngrok-ingress-controller --create-namespace --set credentials.apiKey="{{APIKEY}}" --set credentials.authtoken="{{AUTHTOKEN}}"
+        ignore_errors: true
+      - name: Create pods
+        ansible.builtin.shell: kubectl create -f /home/tathagat/task_manager/server/kubernetes.yml
