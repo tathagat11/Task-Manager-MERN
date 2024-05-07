@@ -1,22 +1,11 @@
 const request = require("supertest");
 const app = require("../server.js");
-const mongoose = require("../node_modules/mongoose");
-// const { MongoMemoryServer } = require("../node_modules/mongodb-memory-server");
 const User = require("../../database/model/user.model.js");
-// let mongoServer;
+// jest.mock("../../database/model/user.model");
 // beforeAll(async () => {
-//   mongoServer = await MongoMemoryServer.create();
-//   const mongoUri = mongoServer.getUri();
-//   await mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
+//   await User.deleteMany({});
 // });
 
-// afterAll(async () => {
-//   await mongoose.disconnect();
-//   await mongoServer.stop();
-// });
-beforeAll(async () => {
-  await User.deleteMany({});
-});
 describe("Auth Controller", () => {
   describe("Log In", () => {
     it("should sign in a registered user", async () => {
