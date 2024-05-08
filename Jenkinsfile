@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        ssh = credentials('ssh')
+    }
     // environment {
     //     env = file('env')
     //     PATH = "/opt/homebrew/bin/:/usr/local/bin:$PATH"
@@ -12,7 +15,7 @@ pipeline {
     // }
 
     stages {
-        stage('Getting files from SCM test branch') {
+        stage('Getting files from SCM') {
             steps {
                 git branch: 'main', url: 'https://github.com/tathagat11/Task-Manager-MERN.git'
             }
@@ -70,8 +73,9 @@ pipeline {
                     installation: 'ansible',
                     colorized: true,
                     disableHostKeyChecking: true,
-                    become: true,
-                    becomeUser: 'root',
+                    credentialsId: ssh,
+                    // become: true,
+                    // becomeUser: 'root',
                     // extraVars: [
                     //     REMOTE_USER: "${REMOTE_USER}",
                     //     REMOTE_PASSWORD: "${REMOTE_PASSWORD}",
