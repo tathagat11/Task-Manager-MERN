@@ -7,7 +7,7 @@
             password: "lmandnjr10"  #add your docker pw
       - name: git pull
         ansible.builtin.shell: git pull https://github.com/tathagat11/Task-Manager-MERN.git
-        chdir: /home/tathagat/task_manager 
+        # chdir: /home/tathagat/task_manager 
         # git:
         #     repo: https://github.com/tathagat11/Task-Manager-MERN.git  #add your github
         #     dest: /home/tathagat/task_manager  #add any path 
