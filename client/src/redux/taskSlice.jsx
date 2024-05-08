@@ -68,7 +68,7 @@ export const addTask = (task, id) => async (dispatch) => {
   };
 
   const response = await axios.post(
-    "https://magpie-more-monkfish.ngrok-free.app/task/add",
+    "https://glowworm-closing-crawdad.ngrok-free.app/task/add",
     taskData
   );
   if (response) {
@@ -91,7 +91,7 @@ export const getAllTasks = (token, id) => async (dispatch) => {
 
   try {
     const response = await axios.get(
-      "https://magpie-more-monkfish.ngrok-free.app/task/tasks",
+      "https://glowworm-closing-crawdad.ngrok-free.app/task/tasks",
       config
     );
     console.log("Response:", response);
@@ -118,7 +118,7 @@ export const arrowClick = (item, string) => async () => {
   };
   try {
     const response = await axios.put(
-      `https://magpie-more-monkfish.ngrok-free.app/task/${taskData.id}`,
+      `https://glowworm-closing-crawdad.ngrok-free.app/task/${taskData.id}`,
       taskData
     );
     if (response) {
@@ -131,7 +131,7 @@ export const arrowClick = (item, string) => async () => {
 
 export const deleteItem = (id) => async (dispatch) => {
   let response = await axios.delete(
-    `https://magpie-more-monkfish.ngrok-free.app/task/${id}`
+    `https://glowworm-closing-crawdad.ngrok-free.app/task/${id}`
   );
   if (response) {
     dispatch(deleteSuccess());
