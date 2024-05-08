@@ -7,26 +7,18 @@
             password: "lmandnjr10"  #add your docker pw
       - name: git pull
         ansible.builtin.shell: git pull https://github.com/tathagat11/Task-Manager-MERN.git
-        # git:
-        #     repo: https://github.com/tathagat11/Task-Manager-MERN.git  #add your github
-        #     dest: /home/tathagat/task_manager  #add any path 
       - name: Stop Docker containers
-        community.general.docker_container:
-            name: clientcontainer
-            state: absent
+        ansible.builtin.shell: docker stop clientcontainer
+        ignore_errors: true
+      - name: Delete Docker container
+        ansible.builtin.shell: docker rm clientcontainer
+        ignore_errors: true
       - name: Delete Docker image
-        community.general.docker_image:
-            name: tathagat10/client
-            tag: latest
-            state: absent
+        ansible.builtin.shell: docker rmi tathagat10/client:latest
+        ignore_errors: true
       - name: Build Docker image
-        community.general.docker_image:
-            name: tathagat10/client
-            tag: latest
-            source: build
-            build:
-                path: /var/lib/jenkins/workspace/Task-Manager/client/ #Add same path + /client
-                dockerfile: Dockerfile
+        ansible.builtin.shell: docker build -t tathagat10/client:latest /var/lib/jenkins/workspace/Task-Manager/client/
+        # ansible.builtin.shell: docker build -t tathagat10/client:latest /home/tathagat/Desktop/sem2/SPE/Task-Manager-MERN/client/
       - name: Push Docker image to Docker Hub
         community.general.docker_image:
             name: tathagat10/client
@@ -34,15 +26,6 @@
             push: yes
             source: local
       - name: Pull Docker image from Docker Hub
-        community.general.docker_image:
-            name: tathagat10/client
-            tag: latest
-            source: pull
-            force_source: yes
+        ansible.builtin.shell: docker pull tathagat10/client:latest
       - name: docker run
-        community.general.docker_container:
-            name: clientcontainer
-            image: tathagat10/client:latest
-            ports:
-                - 3000:80
-            command:
+        ansible.builtin.shell: docker run -p 4001:4000 --name clientcontainer -it -d tathagat10/client:latest 
