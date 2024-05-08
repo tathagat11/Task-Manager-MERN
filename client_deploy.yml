@@ -28,4 +28,4 @@
       - name: Pull Docker image from Docker Hub
         ansible.builtin.shell: docker pull tathagat10/client:latest
       - name: docker run
-        ansible.builtin.shell: docker run -p 4001:4000 --name clientcontainer -it -d tathagat10/client:latest 
+        ansible.builtin.shell: docker run -p 3000:80 --name clientcontainer -it -d tathagat10/client:latest 
