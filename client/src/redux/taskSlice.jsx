@@ -85,7 +85,6 @@ export const getAllTasks = (token, id) => async (dispatch) => {
     headers: {
       Authorization: `Bearer ${token}`,
       "ngrok-skip-browser-warning": "69420",
-      "Access-Control-Allow-Origin": "*",
     },
     params: { id },
   };
