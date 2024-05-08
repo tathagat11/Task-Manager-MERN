@@ -1,0 +1,47 @@
+- name: Deploy Docker Compose with Environment Variables
+  hosts: localhost
+  tasks:
+      - name: Login in docker hub with user
+        community.general.docker_login:
+            username: "tathagat10" #add your docker id 
+            password: "lmandnjr10"  #add your docker pw
+      - name: git pull
+        git:
+            repo: https://github.com/tathagat11/Task-Manager-MERN.git  #add your github
+            dest: /home/tathagat/task_manager  #add any path 
+      - name: Stop Docker containers
+        community.general.docker_container:
+            name: clientcontainer
+            state: absent
+      - name: Delete Docker image
+        community.general.docker_image:
+            name: tathagat10/client
+            tag: latest
+            state: absent
+      - name: Build Docker image
+        community.general.docker_image:
+            name: tathagat10/client
+            tag: latest
+            source: build
+            build:
+                path: /home/tathagat/task_manager/client/ #Add same path + /client
+                dockerfile: Dockerfile
+      - name: Push Docker image to Docker Hub
+        community.general.docker_image:
+            name: tathagat10/client
+            tag: latest
+            push: yes
+            source: local
+      - name: Pull Docker image from Docker Hub
+        community.general.docker_image:
+            name: tathagat10/client
+            tag: latest
+            source: pull
+            force_source: yes
+      - name: docker run
+        community.general.docker_container:
+            name: clientcontainer
+            image: tathagat10/client:latest
+            ports:
+                - 3000:80
+            command:

@@ -2,17 +2,25 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Server for Task Manager web application.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "jest",
+    "dev":"node app.js"
   },
   "author": "audishun",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "email-validator": "^2.0.4",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "mongodb-memory-server": "^9.2.0",
+    "mongoose": "^8.3.3",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }

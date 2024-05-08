@@ -1,44 +1,78 @@
 .dashboard {
-    width: 100%;
-    height: 100vh;
-    display: flex;
+  width: 100%;
+  height: 100vh;
+  display: flex;
 }
 
 .left {
-    width: 15%;
+  width: 15%;
 }
 
 .right {
-    width: 85%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 30px;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  background-color: white;
+  border-radius: 30px;
+  opacity: 0.955;
+  border: 2px solid rgb(179, 179, 179);
 }
 .rightContent {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
 }
 .taskCount {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 50px;
 }
 .box {
-    width: 150px;
-    height: 100px;
-    border-radius: 20px;
-    border: 2px solid rgb(162, 162, 162);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
-    background-color: white;
+  width: 200px;
+  height: 150px;
+  border-radius: 20px;
+  border: 2px solid rgb(162, 162, 162);
+  display: flex;
+  flex-direction:  column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  background-color: white;
 }
 
 h2 {
-    font-weight: 500;
+  margin-top: 50px;
+  font-weight: 500;
+  font-size: 50px;
+}
+.button2 {
+    color: white;
+    padding: 15px 15px;
+    margin: 50px 20px;
+    font-size: 22px;
+    font-family: "poppins", sans-serif;
+    background-color: #002c57;
+    border: none;
+    border-radius: 12px;
+    align-items: center;
+    display: inline-block;
+    flex-direction: row;
+    justify-content: space-between;
+  display: inline-block;
+}
+.button2:hover{
+    color: #002c57;
+    background-color: white;
+    border: 1px solid #002c57;
+  }
+.count {
+  font-size:40px;
 }
 
-
+.title {
+  font-size: 20px;
+}

@@ -6,12 +6,11 @@ import TaskList from "../../components/taskmanager/TaskList";
 
 const TaskManager = () => {
   return (
-    <div>
       <div className="taskManager">
         <div className="left">
           <Sidebar />
         </div>
-        <div className="right">
+        <div className="right1">
           <div className="addTask">
             <AddTask />
           </div>
@@ -20,7 +19,6 @@ const TaskManager = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

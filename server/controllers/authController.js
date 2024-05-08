@@ -1,4 +1,4 @@
-const User = require('../../database/model/user.model');
+const User = require('../database/model/user.model');
 const jwt = require('jsonwebtoken');
 const validator = require('email-validator');
 
@@ -56,7 +56,7 @@ const register = async(req, res) => {
         await user.save()
         return res.status(200).send(user);
     } catch (error) {
-        return res.status(400).send("Unknown error creating user.");
+        return res.status(400).send(error);
     }
 }
 
