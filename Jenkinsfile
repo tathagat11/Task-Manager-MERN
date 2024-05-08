@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Getting files from SCM test branch') {
             steps {
-                git branch: 'test', url: 'https://github.com/tathagat11/Task-Manager-MERN.git'
+                git branch: 'main', url: 'https://github.com/tathagat11/Task-Manager-MERN.git'
             }
         }
         stage('Installing Node modules on server') {
