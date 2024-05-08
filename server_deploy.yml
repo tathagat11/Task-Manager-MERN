@@ -38,6 +38,8 @@
       #     curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
       #     chmod 700 get_helm.sh
       #     ./get_helm.sh
+      - name: Start Minikube
+        ansible.builtin.shell: minikube start
       - name: Add repo ngrok
         ansible.builtin.shell: helm repo add ngrok https://ngrok.github.io/kubernetes-ingress-controller
       - name: Install ngrok Ingress Controller & Creating namespace
