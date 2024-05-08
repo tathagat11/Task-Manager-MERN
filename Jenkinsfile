@@ -37,7 +37,7 @@ pipeline {
         stage('Installing Node modules on client') {
             steps {
                 dir('client') {
-                    sh 'npm install'
+                    sh 'whereis docker'
                 }
             }
         }
