@@ -67,7 +67,7 @@ export const addTask = (task, id) => async (dispatch) => {
     id,
   };
 
-  const response = await axios.post("magpie-more-monkfish.ngrok-free.app/task/add", taskData);
+  const response = await axios.post("https://magpie-more-monkfish.ngrok-free.app/task/add", taskData);
   if (response) {
     localStorage.setItem("task", JSON.stringify(response.data));
     dispatch(taskAddedSuccessfully(response.data));
@@ -79,27 +79,29 @@ export const addTask = (task, id) => async (dispatch) => {
 
 export const getAllTasks = (token, id) => async (dispatch) => {
   const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    params: {
-      id,
-    },
+    headers: { Authorization: `Bearer ${token}` },
+    params: { id },
   };
 
   try {
     const response = await axios.get(
-      "magpie-more-monkfish.ngrok-free.app/task/tasks",
+      "https://magpie-more-monkfish.ngrok-free.app/task/tasks",
       config
     );
+    console.log("Response:", response);
 
-    if (response) {
+    if (response && response.data) {
       dispatch(getAllTaskSuccess(response.data));
-    }
-  } catch (error) {
-    if (error.response.status === 400) {
+    } else {
+      console.log("Invalid response:", response);
       dispatch(getAllTaskFailure());
     }
+  } catch (error) {
+    console.log("Error:", error);
+    if (error.response) {
+      console.log("Error response:", error.response);
+    }
+    dispatch(getAllTaskFailure());
   }
 };
 
@@ -110,7 +112,7 @@ export const arrowClick = (item, string) => async() => {
   };
   try {
     const response = await axios.put(
-      `magpie-more-monkfish.ngrok-free.app/task/${taskData.id}`,
+      `https://magpie-more-monkfish.ngrok-free.app/task/${taskData.id}`,
       taskData
     );
     if(response){
@@ -122,7 +124,7 @@ export const arrowClick = (item, string) => async() => {
 };
 
 export const deleteItem = (id) => async(dispatch) => {
-  let response = await axios.delete(`magpie-more-monkfish.ngrok-free.app/task/${id}`);
+  let response = await axios.delete(`https://magpie-more-monkfish.ngrok-free.app/task/${id}`);
   if(response){
     dispatch(deleteSuccess());
     window.location.reload();
