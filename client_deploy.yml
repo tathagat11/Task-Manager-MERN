@@ -5,11 +5,10 @@
         community.general.docker_login:
             username: "tathagat10" #add your docker id 
             password: "lmandnjr10"  #add your docker pw
-      
+      - name: Change directory
+        ansible.builtin.shell: cd /home/tathagat/task_manager
       - name: git pull
         ansible.builtin.shell: git pull https://github.com/tathagat11/Task-Manager-MERN.git
-        args:
-          chdir: /home/tathagat/task_manager 
         # git:
         #     repo: https://github.com/tathagat11/Task-Manager-MERN.git  #add your github
         #     dest: /home/tathagat/task_manager  #add any path 
