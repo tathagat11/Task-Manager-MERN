@@ -7,9 +7,9 @@ const taskRoutes = require('./routes/taskRoutes')
 const morgan = require('morgan');
 
 app.use(cors({
-    origin: '*',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'ngrok-skip-browser-warning'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   }));
 app.use(morgan('dev'));
 app.use(express.json());
