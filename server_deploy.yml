@@ -8,7 +8,7 @@
             username: "tathagat10"
             password: "lmandnjr10"
       - name: Delete pods if running2
-        ansible.builtin.shell: kubectl delete -f /var/lib/jenkins/workspace/task_manager/server/kubernetes.yml
+        ansible.builtin.shell: kubectl delete -f /var/lib/jenkins/workspace/Task-Manager/server/kubernetes.yml
         ignore_errors: true
       - name: Sleep
         ansible.builtin.shell: sleep 30
@@ -24,7 +24,7 @@
             tag: latest
             source: build
             build:
-                path: /var/lib/jenkins/workspace/task_manager/server/
+                path: /var/lib/jenkins/workspace/Task-Manager/server/
                 dockerfile: Dockerfile
       - name: Push Docker image to Docker Hub
         community.general.docker_image:
@@ -44,7 +44,7 @@
         ansible.builtin.shell: helm upgrade -i ngrok-ingress-controller ngrok/kubernetes-ingress-controller --namespace ngrok-ingress-controller --create-namespace --set credentials.apiKey="2g9mbKZ2U0rApq40XmTMQX3bFFN_5CnoMJSUmLXFPCyC9CiBn" --set credentials.authtoken="2Y1j9GAfrNrhU1K3lsaN9z6t3bq_2S3kAx1xRDNKpfYvSMTqL"
         ignore_errors: true
       - name: Create pods
-        ansible.builtin.shell: kubectl create -f /var/lib/jenkins/workspace/task_manager/server/kubernetes.yml
+        ansible.builtin.shell: kubectl create -f /var/lib/jenkins/workspace/Task-Manager/server/kubernetes.yml
 
 
 # export NGROK_API_KEY=2g9mbKZ2U0rApq40XmTMQX3bFFN_5CnoMJSUmLXFPCyC9CiBn

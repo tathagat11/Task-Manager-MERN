@@ -25,7 +25,7 @@
             tag: latest
             source: build
             build:
-                path: /var/lib/jenkins/workspace/task_manager/client/ #Add same path + /client
+                path: /var/lib/jenkins/workspace/Task-Manager/client/ #Add same path + /client
                 dockerfile: Dockerfile
       - name: Push Docker image to Docker Hub
         community.general.docker_image:
