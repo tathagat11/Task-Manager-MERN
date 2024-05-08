@@ -6,7 +6,7 @@
             username: "tathagat10" #add your docker id 
             password: "lmandnjr10"  #add your docker pw
       - name: git pull
-        ansible.builtin.shell: git pull https://github.com/tathagat11/Task-Manager-MERN.git /home/tathagat/task_manager
+        ansible.builtin.shell: git pull https://github.com/tathagat11/Task-Manager-MERN.git
         # git:
         #     repo: https://github.com/tathagat11/Task-Manager-MERN.git  #add your github
         #     dest: /home/tathagat/task_manager  #add any path 
@@ -25,7 +25,7 @@
             tag: latest
             source: build
             build:
-                path: /home/tathagat/task_manager/client/ #Add same path + /client
+                path: /var/lib/jenkins/workspace/task_manager/client/ #Add same path + /client
                 dockerfile: Dockerfile
       - name: Push Docker image to Docker Hub
         community.general.docker_image:
