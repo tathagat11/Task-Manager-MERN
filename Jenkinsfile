@@ -69,8 +69,9 @@ pipeline {
                     playbook: 'client_deploy.yml',
                     installation: 'ansible',
                     colorized: true,
-                    // inventory: 'inventory.yml',
                     disableHostKeyChecking: true,
+                    become: true,
+                    becomeUser: 'root',
                     // extraVars: [
                     //     REMOTE_USER: "${REMOTE_USER}",
                     //     REMOTE_PASSWORD: "${REMOTE_PASSWORD}",
