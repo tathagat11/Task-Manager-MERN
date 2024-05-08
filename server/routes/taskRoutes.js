@@ -5,6 +5,7 @@ const taskController = require("../controllers/taskController.js");
 
 router.route("/add").post(taskController.addTask);
 router.route("/tasks").get(taskController.getAllTasks);
+router.route("/tasks").options(taskController.getAllTasks)
 router.route("/edit/:id").put(taskController.editTask);
 
 router

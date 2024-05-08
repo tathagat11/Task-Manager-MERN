@@ -81,14 +81,10 @@ export const addTask = (task, id) => async (dispatch) => {
 };
 
 export const getAllTasks = (token, id) => async (dispatch) => {
-  axios.create({
-    headers:{
-      "ngrok-skip-browser-warning":"69420",
-    }
-  })
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
+      "ngrok-skip-browser-warning":"69420",
     },
     params: { id },
   };
