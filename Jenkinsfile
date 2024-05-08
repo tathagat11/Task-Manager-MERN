@@ -91,6 +91,7 @@ pipeline {
                     playbook: 'server_deploy.yml',
                     installation: 'ansible',
                     colorized: true,
+                    credentialsId: ssh,
                     // inventory: 'inventory.yml',
                     disableHostKeyChecking: true,
                     // extraVars: [
