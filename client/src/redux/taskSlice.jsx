@@ -67,7 +67,7 @@ export const addTask = (task, id) => async (dispatch) => {
     id,
   };
 
-  const response = await axios.post("https://magpie-more-monkfish.ngrok-free.app/task/add", taskData);
+  const response = await axios.post("magpie-more-monkfish.ngrok-free.app/task/add", taskData);
   if (response) {
     localStorage.setItem("task", JSON.stringify(response.data));
     dispatch(taskAddedSuccessfully(response.data));
@@ -89,7 +89,7 @@ export const getAllTasks = (token, id) => async (dispatch) => {
 
   try {
     const response = await axios.get(
-      "https://magpie-more-monkfish.ngrok-free.app/task/tasks",
+      "magpie-more-monkfish.ngrok-free.app/task/tasks",
       config
     );
 
@@ -110,7 +110,7 @@ export const arrowClick = (item, string) => async() => {
   };
   try {
     const response = await axios.put(
-      `https://magpie-more-monkfish.ngrok-free.app/task/${taskData.id}`,
+      `magpie-more-monkfish.ngrok-free.app/task/${taskData.id}`,
       taskData
     );
     if(response){
@@ -122,7 +122,7 @@ export const arrowClick = (item, string) => async() => {
 };
 
 export const deleteItem = (id) => async(dispatch) => {
-  let response = await axios.delete(`https://magpie-more-monkfish.ngrok-free.app/task/${id}`);
+  let response = await axios.delete(`magpie-more-monkfish.ngrok-free.app/task/${id}`);
   if(response){
     dispatch(deleteSuccess());
     window.location.reload();
