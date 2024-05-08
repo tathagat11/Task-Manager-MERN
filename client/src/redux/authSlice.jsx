@@ -55,7 +55,7 @@ export const register = (user) => async (dispatch) => {
 		};
 
 		const response = await axios.post(
-			'magpie-more-monkfish.ngrok-free.app/auth/register',
+			'https://magpie-more-monkfish.ngrok-free.app/auth/register',
 			user,
 			config
 		);
@@ -83,7 +83,7 @@ export const signin = (user) => async (dispatch) => {
 			password: user.password,
 		};
 		const response = await axios.post(
-			'magpie-more-monkfish.ngrok-free.app/auth/signin',
+			'https://magpie-more-monkfish.ngrok-free.app/auth/signin',
 			userData
 		);
 		if (response) {
