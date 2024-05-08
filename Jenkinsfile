@@ -34,13 +34,13 @@ pipeline {
                 }
             }
         }
-        // stage('Installing Node modules on client') {
-        //     steps {
-        //         dir('client') {
-        //             sh 'whereis docker'
-        //         }
-        //     }
-        // }
+        stage('Installing Node modules on client') {
+            steps {
+                dir('client') {
+                    sh 'which docker'
+                }
+            }
+        }
         // stage('Testing client') {
         //     steps {
         //         dir('client') {
