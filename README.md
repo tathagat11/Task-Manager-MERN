@@ -23,43 +23,43 @@ The project follows DevOps practices, including Continuous Integration/Continuou
 - Continuous Deployment - Ansible
 - Remote Testing - ngrok
 ## Installations:
-Make sure all packages installed in the system are up to date.
+- Make sure all packages installed in the system are up to date.
 ```sudo apt update```
-Install curl and gnupg2.
+- Install curl and gnupg2.
 ```apt-get install curl gnupg2 -y```
-Install Node.js version manager.
+- Install Node.js version manager.
 ```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash```
-Install Node.js’ latest LTS version (20)
-nvm install 20
-Verify installation, it should show the version of node. Now npm commands can be used.
-node -v
-npm -v
-For the server, create the directory and go ahead.
-For the client:
-Install Vite.
-npm install -g vite
+- Install Node.js’ latest LTS version (20)
+```nvm install 20```
+- Verify installation, it should show the version of node. Now npm commands can be used.
+```node -v```, then
+```npm -v```
+- For the server, create the directory and go ahead.
+### For the client:
+- Install Vite.
+```npm install -g vite```
+- Create a client template.
+```npm create vite@latest client -- --template react```
+- Concurrently is used to run the client and server at the same time in the initial development phase.
+```npm i concurrently```
+- Add this to scripts in root directory: ```"start": "concurrently \"nodemon server/app.js\" \"npm run client\""```
+- Run the client and server. Vite projects start by default on port ```5173```.
+```npm start```
 
-Create a client template.
-npm create vite@latest client -- --template react
-Concurrently is used to run the client and server at the same time in the initial development phase.
-npm i concurrently
-Add this to scripts in root directory: "start": "concurrently \"nodemon server/app.js\" \"npm run client\""
-Run the client and server. Vite projects start by default on port 5173.
-npm start
-
-Database (MongoDB):
-Import the MongoDB public GPG key.
-curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
-   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
-   --dearmor
-Create the list file /etc/apt/sources.list.d/mongodb-org-7.0.list
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
-Install MongoDB.
-	sudo apt-get install -y mongodb-org
-Run MongoDB.
-sudo systemctl start mongod
-Verify MongoDB is running.
-sudo systemctl status mongod
+### Database (MongoDB):
+- Import the MongoDB public GPG key.
+```curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \```
+   ```sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \```
+   ```--dearmor```
+- Create the list file /etc/apt/sources.list.d/mongodb-org-7.0.list
+```echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list```
+- Install MongoDB.
+```sudo apt-get install -y mongodb-org```
+- Run MongoDB.
+```sudo systemctl start mongod```
+- Verify MongoDB is running.
+```sudo systemctl status mongod```
 
 
-*Note: This project uses packages separately installed in server, client and root. Make sure to install all packages in appropriate directories.
+*Note: This project uses packages separately installed in server, client and root. Make sure to install all packages in appropriate directories. <br />
+The CICD implementation and installations will be described in the documentation (it will be linked here shortly).
